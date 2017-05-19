@@ -16,7 +16,6 @@ import static g41363.rushhour.model.Sauvegarde.iniBoard;
 import static g41363.rushhour.model.Sauvegarde.iniListCar;
 import static g41363.rushhour.model.Sauvegarde.sv;
 import static g41363.rushhour.view.Display.displayBoard;
-import g41363.rushhour.view.Fenetre;
 import g41363.rushhour.view.RushHourView;
 import static g41363.rushhour.view.RushHourView.play;
 import java.io.IOException;

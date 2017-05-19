@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import javafx.scene.image.Image;
 
 /**
  * This class creat and manage a Objet of type Board
@@ -17,6 +18,7 @@ import java.io.IOException;
 public class Board {
     private Car[][]grid;
     private Position exit;//=new Position(2,5);
+  //  private Image img;
     
     /**
      * Getter of the position of the exit
@@ -91,6 +93,7 @@ public class Board {
         validParam(height,width,exit);
         this.exit=new Position(exit.getRow(),exit.getColumn());
         initializeTab(width,height,j);
+//        this.img=new Image("file:RushHour\\g41363\\img\\parking.jpg");
     }
     /**
      * Check if a height, a width and the position of exit it's valid

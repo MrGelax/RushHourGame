@@ -8,6 +8,7 @@ package g41363.rushhour.model;
 import static g41363.rushhour.model.Direction.*;
 import static g41363.rushhour.model.Orientation.*;
 import java.util.*;
+import javafx.scene.image.Image;
 /**
  * This class creat and manage a Objet of type Car
  * @author Pedro
@@ -17,6 +18,7 @@ public class Car {
     private int size;
     private Orientation orientation;
     private Position currentPosition; 
+    private Image img;
     /**
      * Cronstruct a car with a id, size,orientation and a current Position
      * @param id it's the id of the car
@@ -34,7 +36,9 @@ public class Car {
         this.currentPosition=currentPosition;
         this.orientation=orientation;
     }
+    
     public Car(String str){
+        Random r=new Random();
         this.id=str.charAt(0);
         this.size=Integer.parseInt(""+str.charAt(1));
         if(str.charAt(2)=='H')
@@ -43,7 +47,17 @@ public class Car {
             this.orientation=Orientation.VERTICAL;
         this.currentPosition=new Position(Integer.parseInt(""+str.charAt(3)),
                 Integer.parseInt(""+str.charAt(4)));
+        /*if(this.size==2)
+            this.img=new Image("file:RushHour\\g41363\\img\\Voiture"+(r.nextInt(3-1+1)+1)+".jpg");
+        else
+            if(this.size==3)
+                this.img=new Image("file:RushHour\\g41363\\img\\Voiture"+(r.nextInt(5-4+1)+4)+".jpg");
+          */  
     }
+    
+    public Image getImg(){return this.img;}
+    
+    
     /**
      * Getter of the size of the car
      * @return return a int
