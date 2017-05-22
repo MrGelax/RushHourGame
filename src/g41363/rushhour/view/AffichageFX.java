@@ -14,6 +14,7 @@ import static g41363.rushhour.model.Sauvegarde.iniListCar;
 import static g41363.rushhour.view.Display.displayBoard;
 import static g41363.rushhour.view.RushHourView.play;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -40,7 +41,7 @@ public class AffichageFX extends Application{
         stage.setTitle("Rush Hour Game");
         // remplacer par HBOX BorderPane root =new BorderPane();
         stage.getIcons().add(new Image(("file:C:\\Users\\Pedro\\Desktop\\RushHour\\g41363\\img\\RHLogo.gif"))); //pour mettre changer l'icon de la fenêtre 
-        stage.setResizable(false);
+        stage.setResizable(true);
         VBox root=new VBox(10);
         GridPane gp1=new GridPane();
         ArrayList<Car> listCar=new ArrayList();
@@ -60,13 +61,20 @@ public class AffichageFX extends Application{
         }
         //displayBoard(game.getBoard(),listCar.get(0));
         //play();
-        
-        for (int i=0;i<game.getBoard().getGrid().length;i++){
+        for (int i = 0; i<game.getBoard().getGrid().length; i++) {
             for (int j=0;j<game.getBoard().getLargeur();j++) {
                 //c'est bon comme façon de convertir img d'un car en image pouvant être vue dans le gp?
-                gp1.add(new ImageView(game.getBoard().getGrid()[i][j].getImg()),i,j);
+                if(game.getBoard().getGrid()[i][j]==null)
+                    gp1.add(new ImageView(new Image("file:img\\vide.png")),i,j);
+                else
+                    gp1.add(new ImageView(game.getBoard().getGrid()[i][j].getImg()),i,j);
             }
         }
+        
+        //root.getChildren().add(new ImageView(new Image("file:img\\parking.gif")));
+        gp1.setGridLinesVisible(true);
+        root.getChildren().add(gp1);
+        //gp1.add(new ImageView(new Image("file:img\\Voiture1.jpg")),1,1);
         
         Scene scn=new Scene(root);
         stage.setScene(scn);
