@@ -12,6 +12,7 @@ import g41363.rushhour.model.RushHourGame;
 import static g41363.rushhour.view.Display.*;
 
 import java.util.Scanner;
+import javafx.scene.control.TextField;
 /**
  * This class creat and manage a Objet of type RushHourView
  * @author G41363
@@ -79,4 +80,17 @@ public class RushHourView {
             displayBoard(game.getBoard(),game.getRedCar());
         }while(!over);
     }
+    
+    public static void playFX(TextField tf,RushHourGame game)throws RushHourException{
+        boolean over=false;
+        do{
+            String str=""+tf.getText().charAt(0);
+            char id=str.charAt(0);
+            Direction direction=direction(id);
+            game.move(id, direction);
+            over=game.isOver();
+            displayBoard(game.getBoard(),game.getRedCar());
+        }while(!over);
+    }
+    
 }

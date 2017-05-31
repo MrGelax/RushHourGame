@@ -47,12 +47,12 @@ public class Car {
             this.orientation=Orientation.VERTICAL;
         this.currentPosition=new Position(Integer.parseInt(""+str.charAt(3)),
                 Integer.parseInt(""+str.charAt(4)));
-        //if(this.size==2) ajouter pour la vFinal
+        if(this.size==2) //ajouter pour la vFinal
             this.img=new Image("file:img\\Voiture"+(r.nextInt(3-1+1)+1)+"b.jpg");
-        /*else ajouter pour la v Final
+        else //ajouter pour la v Final
             if(this.size==3)
-                this.img=new Image("file:img\\Voiture"+(r.nextInt(5-4+1)+4)+".jpg");
-        */  
+                this.img=new Image("file:img\\Voiture"+(r.nextInt(5-4+1)+4)+"b.jpg");
+        
     }
     
     public Image getImg(){return this.img;}
