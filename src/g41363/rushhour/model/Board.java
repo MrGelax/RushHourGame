@@ -167,6 +167,21 @@ public class Board {
         }
         return carReturned;
     }
+    
+    
+    public boolean carFound(char id){
+        Boolean found=false;
+        for (int i = 0; i <this.getHauteur(); i++) {
+            for (int j = 0; j <this.getLargeur(); j++) {
+                if(getGrid()[i][j]!=null&&getGrid()[i][j].getId()==id) {
+                    found=true;
+                }
+                if(found==true)
+                    return found;
+            }
+        }
+        return found;
+    }
     /**
      * chech if the car can move in the board
      * @param car the car that we want move
